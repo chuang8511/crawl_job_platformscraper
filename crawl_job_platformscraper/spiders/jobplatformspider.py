@@ -1,6 +1,6 @@
 import scrapy
 import pdb
-
+from crawl_job_platformscraper.items import Job
 
 class JobplatformspiderSpider(scrapy.Spider):
     name = "jobplatformspider"
@@ -12,18 +12,18 @@ class JobplatformspiderSpider(scrapy.Spider):
         jobIndustries = response.css('.jobList_jobName_address span:first-child::text').getall()
         jobAddresses = response.css('.jobList_jobName_address span:nth-child(2)::text').getall()
 
-        jobs = []
+        # jobs = []
+        job = Job()
         for i in range(len(jobTitles)):
             # jobs.append({
             #     'title': jobTitles[i],
             #     'industry': jobIndustries[i],
             #     'location': jobAddresses[i]
             # })
-            yield{
-                'title': jobTitles[i],
-                'industry': jobIndustries[i],
-                'location': jobAddresses[i]
-            }
-            
+            job["title"] = jobTitles[i]
+            job["industry"] = jobIndustries[i]
+            job["location"] = jobAddresses[i]
+            yield job
+          
         # pdb.set_trace()
         pass
