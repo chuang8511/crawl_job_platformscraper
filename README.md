@@ -10,3 +10,8 @@ $ scrapy crawl jobplatformspider -O jobs.json
 If the data is messy, how to deal with that?
 - Please try to use the item loader to pre-process the data to make the code cleaner
 Doc: https://scrapeops.io/python-scrapy-playbook/scrapy-beginners-guide-cleaning-data/#example-item-loader
+
+
+How to save data into DB?
+- We need to use pipeline to save the data into PostgreSQL
+Doc: https://scrapeops.io/python-scrapy-playbook/scrapy-beginners-guide-storing-data/#saving-data-to-mysql-and-postgresql-databases

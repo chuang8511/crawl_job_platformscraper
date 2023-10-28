@@ -26,4 +26,4 @@ class JobplatformspiderSpider(scrapy.Spider):
             yield job
           
         # pdb.set_trace()
-        pass
+        
